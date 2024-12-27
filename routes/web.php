@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,4 +13,8 @@ Route::get('/company', function () {
 
 Route::get('/employee', function () {
     return view('pages.employee');
+});
+
+Route::prefix('employee')->group(function () {
+    Route::post('store', [EmployeeController::class, 'store']);
 });
