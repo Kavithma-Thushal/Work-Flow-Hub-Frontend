@@ -6,12 +6,14 @@ $(document).ready(function () {
             name: $('#employeeName').val(),
             address: $('#employeeAddress').val(),
             salary: $('#employeeSalary').val(),
-            _token: '{{ csrf_token() }}'
         };
 
         $.ajax({
-            url: '/employees',
+            url: 'employee/store',
             method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: employeeData,
             success: function (response) {
                 alert('Employee stored successfully!');
