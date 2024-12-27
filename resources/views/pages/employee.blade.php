@@ -77,8 +77,8 @@
                 <td>Galle</td>
                 <td>90000</td>
                 <td class="text-center">
-                    <button class="btn btn-warning btn-sm w-25">Edit</button>
-                    <button class="btn btn-danger btn-sm w-25">Delete</button>
+                    <button type="button" class="btn btn-warning btn-sm w-25" id="updateEmployee">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm w-25">Delete</button>
                 </td>
             </tr>
             </tbody>

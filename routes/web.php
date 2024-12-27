@@ -17,4 +17,5 @@ Route::get('/employee', function () {
 
 Route::prefix('employee')->group(function () {
     Route::post('store', [EmployeeController::class, 'store']);
+    Route::patch('update/{id}', [EmployeeController::class, 'update']);
 });
