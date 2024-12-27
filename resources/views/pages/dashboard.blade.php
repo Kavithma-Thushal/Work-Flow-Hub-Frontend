@@ -2,8 +2,8 @@
 
 @section('title', 'Dashboard')
 
-@section('custom-css')
-    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('assets/styles/dashboard.css') }}">
 @endsection
 
 @section('content')
@@ -14,6 +14,6 @@
     </div>
 @endsection
 
-@section('custom-js')
-    <script src="{{ asset('assets/js/home.js') }}"></script>
+@section('scripts')
+    <script src="{{ asset('assets/scripts/dashboard.js') }}"></script>
 @endsection

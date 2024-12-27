@@ -5,7 +5,7 @@
 @section('content')
     <div class="container" style="margin-top: 80px">
 
-        <!-- Employee Management Title -->
+        <!-- Title -->
         <div class="row mb-5">
             <div class="col">
                 <h1 class="text-center">Employee Management</h1>
@@ -22,13 +22,13 @@
                     <button class="btn btn-success">Get All</button>
                 </div>
             </div>
-            <!-- + Add Button -->
+            <!-- + Add -->
             <div class="col text-end">
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">+ Add</button>
             </div>
         </div>
 
-        <!-- Employee Modal -->
+        <!-- Modal -->
         <div class="modal fade" id="addEmployeeModal">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -39,27 +39,27 @@
                         <form>
                             <div class="mb-3">
                                 <label for="employeeName" class="form-label">Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="employeeName">
                             </div>
                             <div class="mb-3">
                                 <label for="employeeAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="employeeAddress">
                             </div>
                             <div class="mb-3">
                                 <label for="employeeSalary" class="form-label">Salary</label>
-                                <input type="number" class="form-control">
+                                <input type="number" class="form-control" id="employeeSalary">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" id="storeEmployee">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Employee Table -->
+        <!-- Table -->
         <table class="table table-bordered">
             <thead class="table-light">
             <tr>
@@ -73,7 +73,7 @@
             <tbody>
             <tr>
                 <td>1</td>
-                <td>Kavithma Thushal</td>
+                <td>Kavithma</td>
                 <td>Galle</td>
                 <td>90000</td>
                 <td class="text-center">
@@ -84,4 +84,8 @@
             </tbody>
         </table>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('assets/scripts/employee.js') }}"></script>
 @endsection
