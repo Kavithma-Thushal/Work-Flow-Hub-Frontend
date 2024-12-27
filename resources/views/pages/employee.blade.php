@@ -39,17 +39,15 @@
                         <form>
                             <div class="mb-3">
                                 <label for="employeeName" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="employeeName" placeholder="Enter name">
+                                <input type="text" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="employeeAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="employeeAddress"
-                                       placeholder="Enter address">
+                                <input type="text" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="employeeSalary" class="form-label">Salary</label>
-                                <input type="number" class="form-control" id="employeeSalary"
-                                       placeholder="Enter salary">
+                                <input type="number" class="form-control">
                             </div>
                         </form>
                     </div>
