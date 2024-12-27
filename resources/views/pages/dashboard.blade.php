@@ -7,7 +7,11 @@
 @endsection
 
 @section('content')
-    <h1>Welcome to Work Flow Hub</h1>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="text-center">
+            <h1>Welcome to Work Flow Hub!</h1>
+        </div>
+    </div>
 @endsection
 
 @section('custom-js')
