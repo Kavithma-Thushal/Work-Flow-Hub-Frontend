@@ -9,7 +9,11 @@
 </head>
 
 <body>
+@include('partials.header')
+
 @yield('content')
+
+@include('partials.footer')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 @yield('custom-js')

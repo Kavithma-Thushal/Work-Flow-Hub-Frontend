@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Dashboard')
 
 @section('custom-css')
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
