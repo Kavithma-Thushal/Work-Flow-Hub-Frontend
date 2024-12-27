@@ -12,16 +12,17 @@
             </div>
         </div>
 
-        <!-- Add Employee Button -->
+        <!-- Buttons -->
         <div class="row mb-3">
             <!-- Search Bar -->
             <div class="col">
                 <div class="d-flex">
                     <input type="text" class="form-control me-2 w-50" placeholder="Search Here">
-                    <button class="btn btn-success" type="button">Search</button>
+                    <button class="btn btn-success me-2">Search</button>
+                    <button class="btn btn-success">Get All</button>
                 </div>
             </div>
-            <!-- Add Employee Button -->
+            <!-- + Add Button -->
             <div class="col text-end">
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">+ Add</button>
             </div>
