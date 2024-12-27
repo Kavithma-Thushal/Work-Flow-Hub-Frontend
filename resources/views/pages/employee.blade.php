@@ -65,6 +65,7 @@
         <table class="table table-bordered">
             <thead class="table-light">
             <tr>
+                <th class="col">ID</th>
                 <th class="col-3">Name</th>
                 <th class="col-3">Address</th>
                 <th class="col-3">Salary</th>
@@ -73,6 +74,7 @@
             </thead>
             <tbody>
             <tr>
+                <td>1</td>
                 <td>Kavithma Thushal</td>
                 <td>Galle</td>
                 <td>90000</td>
