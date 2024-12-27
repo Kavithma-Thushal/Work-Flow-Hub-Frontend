@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Home')
 
 @section('custom-css')
-    <link rel="stylesheet" href="{{asset('assets/css/login.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
 @endsection
 
 @section('content')
@@ -11,5 +11,5 @@
 @endsection
 
 @section('custom-js')
-    <script src="{{asset('assets/js/login.js')}}"></script>
+    <script src="{{ asset('assets/js/home.js') }}"></script>
 @endsection
