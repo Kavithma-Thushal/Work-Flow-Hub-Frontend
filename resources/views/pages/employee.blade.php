@@ -3,13 +3,29 @@
 @section('title', 'Employee')
 
 @section('content')
-    <div class="container" style="margin-top: 100px">
+    <div class="container" style="margin-top: 80px">
+
+        <!-- Employee Management Title -->
+        <div class="row mb-5">
+            <div class="col">
+                <h1 class="text-center">Employee Management</h1>
+            </div>
+        </div>
 
         <!-- Add Employee Button -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h1>Employee Management</h1>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee
-            </button>
+        <div class="row mb-3">
+            <!-- Search Bar -->
+            <div class="col">
+                <div class="d-flex">
+                    <input type="text" class="form-control me-2 w-50" placeholder="Search Here">
+                    <button class="btn btn-success" type="button">Search</button>
+                </div>
+            </div>
+            <!-- Add Employee Button -->
+            <div class="col text-end">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee
+                </button>
+            </div>
         </div>
 
         <!-- Employee Modal -->
@@ -60,9 +76,9 @@
                 <td>Kavithma Thushal</td>
                 <td>Galle</td>
                 <td>90000</td>
-                <td>
-                    <button class="btn btn-warning">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                <td class="text-center">
+                    <button class="btn btn-warning btn-sm w-25">Edit</button>
+                    <button class="btn btn-danger btn-sm w-25">Delete</button>
                 </td>
             </tr>
             </tbody>
