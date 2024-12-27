@@ -23,8 +23,7 @@
             </div>
             <!-- Add Employee Button -->
             <div class="col text-end">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee
-                </button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">+ Add</button>
             </div>
         </div>
 
