@@ -19,7 +19,7 @@
                 <div class="d-flex">
                     <input type="text" class="form-control me-2 w-50" placeholder="Search Here">
                     <button class="btn btn-success me-2">Search</button>
-                    <button class="btn btn-success">Get All</button>
+                    <button class="btn btn-success" id="getAllEmployees">Get All</button>
                 </div>
             </div>
             <!-- + Add -->
@@ -60,29 +60,21 @@
         </div>
 
         <!-- Table -->
-        <table class="table table-bordered">
-            <thead class="table-light">
-            <tr>
-                <th class="col">ID</th>
-                <th class="col-3">Name</th>
-                <th class="col-3">Address</th>
-                <th class="col-3">Salary</th>
-                <th class="col-3">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>Kavithma</td>
-                <td>Galle</td>
-                <td>90000</td>
-                <td class="text-center">
-                    <button type="button" class="btn btn-warning btn-sm w-25" id="updateEmployee">Edit</button>
-                    <button type="button" class="btn btn-danger btn-sm w-25">Delete</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div style="overflow-y: auto; max-height: 400px;">
+            <table class="table table-bordered">
+                <thead class="table-light">
+                <tr>
+                    <th class="col">ID</th>
+                    <th class="col-3">Name</th>
+                    <th class="col-3">Address</th>
+                    <th class="col-3">Salary</th>
+                    <th class="col-3">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
 

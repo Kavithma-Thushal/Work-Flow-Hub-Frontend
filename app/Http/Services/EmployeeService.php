@@ -56,4 +56,9 @@ class EmployeeService
             throw new HttpException(HttpStatus::INTERNAL_SERVER_ERROR, 'Employee update failed: ' . $e->getMessage());
         }
     }
+
+    public function getAll()
+    {
+        return $this->employeeRepositoryInterface->getAll();
+    }
 }

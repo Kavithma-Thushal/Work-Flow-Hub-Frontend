@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    loadAllEmployees();
+
     $('#storeEmployee').click(function (e) {
         e.preventDefault();
 
@@ -10,18 +12,22 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: 'employee/store',
+            url: `employee/store`,
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: employeeData,
             success: function (response) {
-                alert('Employee stored successfully!');
+                alert(response.message);
                 $('#addEmployeeModal').modal('hide');
+                $('#employeeName').val('');
+                $('#employeeAddress').val('');
+                $('#employeeSalary').val('');
+                loadAllEmployees();
             },
             error: function (xhr) {
-                alert('Error: ' + xhr.responseText);
+                alert(error.responseJSON.message);
             }
         });
     });
@@ -45,12 +51,49 @@ $(document).ready(function () {
             },
             data: employeeData,
             success: function (response) {
-                alert('Employee updated successfully!');
-                $('#addEmployeeModal').modal('hide');
+                alert(response.message);
+                loadAllEmployees();
             },
             error: function (xhr) {
-                alert('Error: ' + xhr.responseText);
+                alert(error.responseJSON.message);
             }
         });
     });
+
+    $('#getAllEmployees').click(function (e) {
+        e.preventDefault();
+        loadAllEmployees();
+    });
+
+    function loadAllEmployees() {
+        $.ajax({
+            url: `employee/getAll`,
+            method: 'GET',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                let employees = response.data;
+                let tableRows = '';
+                employees.forEach(function (employee) {
+                    tableRows += `
+                    <tr>
+                        <td>${employee.id}</td>
+                        <td>${employee.name}</td>
+                        <td>${employee.address}</td>
+                        <td>${employee.salary}</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-warning btn-sm w-25" id="updateEmployee">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm w-25">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                });
+                $('table tbody').html(tableRows);
+            },
+            error: function (xhr) {
+                alert(error.responseJSON.message);
+            }
+        });
+    }
 });
