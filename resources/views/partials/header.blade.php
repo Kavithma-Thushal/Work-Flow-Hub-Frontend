@@ -12,9 +12,6 @@
                         <a class="nav-link text-dark" href="/">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="/company">Company</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-dark" href="/employee">Employee</a>
                     </li>
                 </ul>
