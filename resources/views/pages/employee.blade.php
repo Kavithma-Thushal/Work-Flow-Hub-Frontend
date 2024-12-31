@@ -19,7 +19,6 @@
                 <div class="d-flex">
                     <input type="text" class="form-control me-2 w-50" placeholder="Search Here">
                     <button class="btn btn-success me-2">Search</button>
-                    <button class="btn btn-success" id="getAllEmployees">Get All</button>
                 </div>
             </div>
             <!-- + Add -->
@@ -28,7 +27,7 @@
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Add Employee -->
         <div class="modal fade" id="addEmployeeModal">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
