@@ -19,7 +19,7 @@ $(document).ready(function () {
             },
             data: employeeData,
             success: function (response) {
-                alert(response.message);
+                successNotification(response.message);
                 $('#addEmployeeModal').modal('hide');
                 $('#employeeName').val('');
                 $('#employeeAddress').val('');
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 loadAllEmployees();
             },
             error: function (xhr) {
-                alert(error.responseJSON.message);
+                errorNotification(error.responseJSON.message);
             }
         });
     });
@@ -51,11 +51,11 @@ $(document).ready(function () {
             },
             data: employeeData,
             success: function (response) {
-                alert(response.message);
+                successNotification(response.message);
                 loadAllEmployees();
             },
             error: function (xhr) {
-                alert(error.responseJSON.message);
+                errorNotification(error.responseJSON.message);
             }
         });
     });
@@ -92,7 +92,7 @@ $(document).ready(function () {
                 $('table tbody').html(tableRows);
             },
             error: function (xhr) {
-                alert(error.responseJSON.message);
+                errorNotification(error.responseJSON.message);
             }
         });
     }
