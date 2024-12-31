@@ -14,7 +14,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: `employee/store`,
+            url: `store`,
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -64,7 +64,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: `employee/update/${updatedEmployeeId}`,
+            url: `update/${updatedEmployeeId}`,
             method: 'PATCH',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -91,7 +91,7 @@ $(document).ready(function () {
 
         confirmDeletion(() => {
             $.ajax({
-                url: `employee/delete/${deletedEmployeeId}`,
+                url: `delete/${deletedEmployeeId}`,
                 method: 'DELETE',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -118,7 +118,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: `employee/getById/${selectedEmployeeId}`,
+            url: `getById/${selectedEmployeeId}`,
             method: 'GET',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -154,7 +154,7 @@ $(document).ready(function () {
 
     function loadAllEmployees() {
         $.ajax({
-            url: `employee/getAll`,
+            url: `getAll`,
             method: 'GET',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
