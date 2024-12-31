@@ -69,6 +69,17 @@ class EmployeeService
         }
     }
 
+    public function getById(int $id)
+    {
+        $employee = $this->employeeRepositoryInterface->getById($id);
+
+        if (!$employee) {
+            throw new HttpException(HttpStatus::NOT_FOUND, 'Employee not found');
+        }
+
+        return $employee;
+    }
+
     public function getAll()
     {
         return $this->employeeRepositoryInterface->getAll();

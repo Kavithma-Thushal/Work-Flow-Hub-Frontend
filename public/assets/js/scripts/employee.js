@@ -107,6 +107,46 @@ $(document).ready(function () {
         });
     });
 
+    $('#searchEmployee').click(function (e) {
+        e.preventDefault();
+
+        let selectedEmployeeId = $('#txtSearchInput').val();
+
+        if (!selectedEmployeeId) {
+            errorNotification('Please enter an Employee ID to search.');
+            return;
+        }
+
+        $.ajax({
+            url: `employee/getById/${selectedEmployeeId}`,
+            method: 'GET',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                $('#txtSearchInput').val('');
+                let employee = response.data;
+                let tableRows = `
+                <tr>
+                    <td>${employee.id}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.address}</td>
+                    <td>${employee.salary}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-warning btn-sm w-25" id="updateEmployee">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm w-25 deleteEmployee" data-id="${employee.id}">Delete</button>
+                    </td>
+                </tr>
+            `;
+                $('table tbody').html(tableRows);
+            },
+            error: function (xhr) {
+                $('table tbody').empty();
+                errorNotification(xhr.responseJSON?.message);
+            }
+        });
+    });
+
     $('#getAllEmployees').click(function (e) {
         e.preventDefault();
         loadAllEmployees();

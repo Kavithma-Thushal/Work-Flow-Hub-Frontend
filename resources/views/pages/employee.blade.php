@@ -17,8 +17,8 @@
             <!-- Search Bar -->
             <div class="col">
                 <div class="d-flex">
-                    <input type="text" class="form-control me-2 w-50" placeholder="Search Here">
-                    <button class="btn btn-success me-2">Search</button>
+                    <input type="text" class="form-control me-2 w-50" id="txtSearchInput" placeholder="Search Here">
+                    <button class="btn btn-success me-2" id="searchEmployee">Search</button>
                 </div>
             </div>
             <!-- + Add -->
