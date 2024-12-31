@@ -58,6 +58,37 @@
             </div>
         </div>
 
+        <!-- Update Employee -->
+        <div class="modal fade" id="updateEmployeeModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Employee</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="employeeName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="updateEmployeeName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="employeeAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="updateEmployeeAddress">
+                            </div>
+                            <div class="mb-3">
+                                <label for="employeeSalary" class="form-label">Salary</label>
+                                <input type="number" class="form-control" id="updateEmployeeSalary">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" id="updateEmployee">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Table -->
         <div style="overflow-y: auto; max-height: 400px;">
             <table class="table table-bordered">

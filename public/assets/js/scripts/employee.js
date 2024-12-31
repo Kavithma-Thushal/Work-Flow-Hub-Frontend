@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    let selectedEmployeeId = null;
+
     loadAllEmployees();
 
     $('#storeEmployee').click(function (e) {
@@ -20,11 +22,11 @@ $(document).ready(function () {
             data: employeeData,
             success: function (response) {
                 successNotification(response.message);
+                loadAllEmployees();
                 $('#addEmployeeModal').modal('hide');
                 $('#employeeName').val('');
                 $('#employeeAddress').val('');
                 $('#employeeSalary').val('');
-                loadAllEmployees();
             },
             error: function (xhr) {
                 errorNotification(error.responseJSON.message);
@@ -32,30 +34,52 @@ $(document).ready(function () {
         });
     });
 
+    // Get employee details and show update model
+    $(document).on('click', '.btn-warning', function (e) {
+        e.preventDefault();
+
+        // Get employee details from the clicked row
+        const employeeRow = $(this).closest('tr');
+        selectedEmployeeId = employeeRow.find('td:first').text();
+        const name = employeeRow.find('td:nth-child(2)').text();
+        const address = employeeRow.find('td:nth-child(3)').text();
+        const salary = employeeRow.find('td:nth-child(4)').text();
+
+        // Populate the update modal fields with employee data
+        $('#updateEmployeeName').val(name);
+        $('#updateEmployeeAddress').val(address);
+        $('#updateEmployeeSalary').val(salary);
+
+        // Show the update modal
+        $('#updateEmployeeModal').modal('show');
+    });
+
     $('#updateEmployee').click(function (e) {
         e.preventDefault();
 
-        const employeeId = 1;
-
-        let employeeData = {
-            name: $('#employeeName').val(),
-            address: $('#employeeAddress').val(),
-            salary: $('#employeeSalary').val(),
+        let updatedEmployeeData = {
+            name: $('#updateEmployeeName').val(),
+            address: $('#updateEmployeeAddress').val(),
+            salary: $('#updateEmployeeSalary').val(),
         };
 
         $.ajax({
-            url: `employee/update/${employeeId}`,
+            url: `employee/update/${selectedEmployeeId}`,
             method: 'PATCH',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            data: employeeData,
+            data: updatedEmployeeData,
             success: function (response) {
                 successNotification(response.message);
                 loadAllEmployees();
+                $('#updateEmployeeModal').modal('hide');
+                $('#updateEmployeeName').val('');
+                $('#updateEmployeeAddress').val('');
+                $('#updateEmployeeSalary').val('');
             },
             error: function (xhr) {
-                errorNotification(error.responseJSON.message);
+                errorNotification(xhr.responseJSON.message);
             }
         });
     });
