@@ -27,7 +27,7 @@
                 </div>
             </form>
             <div class="text-center mt-3">
-                <p>Don't have an account? <a href="/register">Register here</a></p>
+                <p>Don't have an account? <a href="/">Register here</a></p>
             </div>
         </div>
     </div>

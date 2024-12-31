@@ -4,11 +4,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });
 
-Route::get('/register', [AuthController::class, 'register']);
+Route::get('/', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'login']);
 
 Route::prefix('employee')->group(function () {
