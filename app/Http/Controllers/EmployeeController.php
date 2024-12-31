@@ -38,6 +38,16 @@ class EmployeeController extends Controller
         }
     }
 
+    public function delete(int $id)
+    {
+        try {
+            $this->employeeService->delete($id);
+            return response()->json(['message' => 'Employee Deleted Successfully!']);
+        } catch (HttpException $e) {
+            ErrorResponse::throwException($e);
+        }
+    }
+
     public function getAll()
     {
         try {

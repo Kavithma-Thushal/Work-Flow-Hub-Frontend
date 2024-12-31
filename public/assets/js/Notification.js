@@ -25,3 +25,20 @@ function errorNotification(message) {
         toast: true
     });
 }
+
+function confirmDeletion(callback) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this employee!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            callback();
+        }
+    });
+}

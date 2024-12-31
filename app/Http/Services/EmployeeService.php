@@ -57,6 +57,18 @@ class EmployeeService
         }
     }
 
+    public function delete(int $id)
+    {
+        DB::beginTransaction();
+        try {
+            $this->employeeRepositoryInterface->delete($id);
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw new HttpException(HttpStatus::INTERNAL_SERVER_ERROR, 'Employee delete failed: ' . $e->getMessage());
+        }
+    }
+
     public function getAll()
     {
         return $this->employeeRepositoryInterface->getAll();

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    let selectedEmployeeId = null;
+    let updatedEmployeeId = null;
 
     loadAllEmployees();
 
@@ -34,13 +34,13 @@ $(document).ready(function () {
         });
     });
 
-    // Get employee details and show update model
+    // Update Model Shoes
     $(document).on('click', '.btn-warning', function (e) {
         e.preventDefault();
 
         // Get employee details from the clicked row
-        const employeeRow = $(this).closest('tr');
-        selectedEmployeeId = employeeRow.find('td:first').text();
+        let employeeRow = $(this).closest('tr');
+        updatedEmployeeId = employeeRow.find('td:first').text();
         const name = employeeRow.find('td:nth-child(2)').text();
         const address = employeeRow.find('td:nth-child(3)').text();
         const salary = employeeRow.find('td:nth-child(4)').text();
@@ -64,7 +64,7 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: `employee/update/${selectedEmployeeId}`,
+            url: `employee/update/${updatedEmployeeId}`,
             method: 'PATCH',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -81,6 +81,29 @@ $(document).ready(function () {
             error: function (xhr) {
                 errorNotification(xhr.responseJSON.message);
             }
+        });
+    });
+
+    $(document).on('click', '.deleteEmployee', function (e) {
+        e.preventDefault();
+
+        let deletedEmployeeId = $(this).data('id');
+
+        confirmDeletion(() => {
+            $.ajax({
+                url: `employee/delete/${deletedEmployeeId}`,
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    successNotification(response.message);
+                    loadAllEmployees();
+                },
+                error: function (xhr) {
+                    errorNotification(xhr.responseJSON.message);
+                }
+            });
         });
     });
 
@@ -108,7 +131,7 @@ $(document).ready(function () {
                         <td>${employee.salary}</td>
                         <td class="text-center">
                             <button type="button" class="btn btn-warning btn-sm w-25" id="updateEmployee">Edit</button>
-                            <button type="button" class="btn btn-danger btn-sm w-25">Delete</button>
+                            <button type="button" class="btn btn-danger btn-sm w-25 deleteEmployee" data-id="${employee.id}">Delete</button>
                         </td>
                     </tr>
                 `;
