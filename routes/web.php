@@ -7,11 +7,8 @@ Route::get('/', function () {
     return view('pages.dashboard');
 });
 
-Route::get('/employee', function () {
-    return view('pages.employee');
-});
-
 Route::prefix('employee')->group(function () {
+    Route::get('view', [EmployeeController::class, 'view']);
     Route::post('store', [EmployeeController::class, 'store']);
     Route::patch('update/{id}', [EmployeeController::class, 'update']);
     Route::delete('delete/{id}', [EmployeeController::class, 'delete']);

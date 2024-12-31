@@ -18,6 +18,11 @@ class EmployeeController extends Controller
         $this->employeeService = $employeeService;
     }
 
+    public function view()
+    {
+        return view('pages.employee');
+    }
+
     public function store(EmployeeRequest $request)
     {
         try {
