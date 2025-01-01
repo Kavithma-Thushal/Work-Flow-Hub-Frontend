@@ -35,4 +35,29 @@ class AuthService
             throw new HttpException(HttpStatus::INTERNAL_SERVER_ERROR, 'User registration failed: ' . $e->getMessage());
         }
     }
+
+    public function login(array $data): array
+    {
+        $user = $this->userRepositoryInterface->getByEmail($data['email']);
+
+        // If user not found, throw an HttpException
+        if (!$user) {
+            throw new HttpException(HttpStatus::UNPROCESSABLE_CONTENT, 'Username or password invalid');
+        }
+
+        // Check if the provided password matches the hashed password
+        if (!Hash::check($data['password'], $user->password)) {
+            throw new HttpException(HttpStatus::UNPROCESSABLE_CONTENT, 'Username or password invalid');
+        }
+
+        // Create a personal access token
+        $token = $user->createToken('work-flow-hub')->accessToken;
+
+        // If token creation fails, throw an error
+        if (!$token) {
+            throw new HttpException(HttpStatus::INTERNAL_SERVER_ERROR, 'User authentication failed');
+        }
+
+        return ['user' => $user, 'access_token' => $token];
+    }
 }

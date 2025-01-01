@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Classes\ErrorResponse;
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Resources\LoginResource;
 use App\Http\Resources\SuccessResource;
 use App\Http\Resources\UserResource;
 use App\Http\Services\AuthService;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class AuthController extends Controller
@@ -42,19 +40,13 @@ class AuthController extends Controller
         }
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
-
-        if (Auth::attempt($request->only('email', 'password'))) {
-            $user = Auth::user();
-            $token = $user->createToken('Demo')->accessToken;
-            return response()->json(['token' => $token], 200);
+        try {
+            $data = $this->authService->login($request->validated());
+            return new SuccessResource(['message' => 'User Logged in Successfully!', 'data' => new LoginResource($data)]);
+        } catch (HttpException $e) {
+            ErrorResponse::throwException($e);
         }
-
-        return response()->json(['message' => 'Unauthorized'], 401);
     }
 }
