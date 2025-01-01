@@ -8,8 +8,11 @@ Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });
 
-Route::get('/', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/', [AuthController::class, 'registerView']);
+Route::get('/loginView', [AuthController::class, 'loginView']);
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::prefix('employee')->group(function () {
     Route::get('/view', [EmployeeController::class, 'view']);

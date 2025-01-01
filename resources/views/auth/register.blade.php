@@ -13,30 +13,28 @@
     <div class="card" style="max-width: 500px; width: 100%;">
         <div class="card-body">
             <h2 class="text-center mb-4">Register</h2>
-            <form>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="mb-3">
-                    <label for="password_confirmation" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
-                           required>
-                </div>
-                <div class="d-grid">
-                    <button type="button" class="btn btn-primary btn-lg">Register</button>
-                </div>
-            </form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
+                       required>
+            </div>
+            <div class="d-grid">
+                <button type="button" class="btn btn-primary btn-lg" id="btnRegister">Register</button>
+            </div>
             <div class="text-center mt-3">
-                <p>Already have an account? <a href="/login">Login here</a></p>
+                <p>Already have an account? <a href="/loginView">Login here</a></p>
             </div>
         </div>
     </div>
@@ -46,5 +44,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('assets/js/Notification.js') }}"></script>
+<script src="{{ asset('assets/js/scripts/auth.js') }}"></script>
 </body>
 </html>
